@@ -11,6 +11,11 @@
       "keys": ["send-event"]
     }
   },
+  "principals": [
+  "vrn:apps:*:*:*:app/vtex.backend-course@*",
+  "vrn:apps:*:*:*:app/vtex.events-example@*",
+  "vrn:apps:*:*:*:app/replyqa1.backend-course@*"
+  ],
   "routes": {
     "analytics": {
       "path": "/_v/app/analytics/realTime",
