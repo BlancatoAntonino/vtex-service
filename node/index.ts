@@ -9,7 +9,8 @@ import {
 import { updateLiveUsers } from './event/liveUsersUpdate'
 import { Clients } from './clients'
 import { analytics } from './handlers/analytics'
-
+import { productList } from './resolvers/products'
+import { status } from './handlers/status'
 
 const TREE_SECONDS_MS = 3 * 1000
 const CONCURRENCY = 10
@@ -28,6 +29,7 @@ declare global {
 }
 
 export default new Service<Clients, State, ParamsContext>({
+  
   clients: {
     implementation: Clients,
     options: {
@@ -45,12 +47,27 @@ export default new Service<Clients, State, ParamsContext>({
       },
     },
   },
+
   events: {
     liveUsersUpdate: updateLiveUsers,
   },
+
   routes: {
     analytics: method({
       GET: [analytics],
     }),
+
+    status: method({
+      GET: [status],
+    }),
+  
   },
+  
+  graphql: {
+            resolvers: {
+                Query: {
+                    productList,
+                },
+        },
+    },
 })

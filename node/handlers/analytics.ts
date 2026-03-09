@@ -1,4 +1,7 @@
 export async function analytics(ctx: Context, next: () => Promise<any>) {
+  
+  console.log('VTEX authToken:', ctx.vtex.authToken)
+
   const {
     clients: {analytics},
   } = ctx

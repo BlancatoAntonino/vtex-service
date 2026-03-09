@@ -20,6 +20,10 @@
     "analytics": {
       "path": "/_v/app/analytics/realTime",
       "public": true
+    },
+    "status": {
+      "path": "/_v/status/:code",
+      "public": true
     }
   }
 }
